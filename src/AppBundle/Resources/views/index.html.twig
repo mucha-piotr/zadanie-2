@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zadanie 2</title>
+</head>
+<body>
+    <p>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Wyślij"/>
+        {{ form_end(form) }}
+    </p>
+    <p>
+        {% if image is defined %}
+            <p><img class="result" src="{{ image.url }}" width="640" height="480"/></p>
+            <p>Wymiary oryginału:{{ image.width }}x{{ image.height }}</p>
+            <p>Rozmiar zdjęcia: {{ image.size }}</p>
+            <p>Typ: {{ image.type }}</p>
+        {% else %}
+            <p>Nie przesłano zdjęcia</p>
+        {% endif %}
+    </p>
+</body>
+</html>

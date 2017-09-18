@@ -11,6 +11,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,6 +22,16 @@ class UploadType extends AbstractType
         $builder
             ->add("image",FileType::class,[
                 "label" => "Wybierz zdjęcie z dysku"
+            ])
+            ->add("width",IntegerType::class,[
+                "label" => "Wysokość",
+                "required" => false,
+                "empty_data" => "640"
+            ])
+            ->add("height",IntegerType::class,[
+                "label" => "Szerokość",
+                "required" => false,
+                "empty_data" => "480"
             ])
             ;
     }

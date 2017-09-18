@@ -26,6 +26,8 @@ class IndexController extends Controller
         if ($form->isSubmitted() && $form->isValid()){
             /** @var UploadedFile $file */
             $file = $form->getData()['image'];
+            $width = $form->getData()['width'];
+            $height = $form->getData()['height'];
             
             $originalName = $file->getFilename().'.'.$file->guessClientExtension();
             
@@ -45,7 +47,9 @@ class IndexController extends Controller
                 "width" => $image->getWidth($url),
                 "height" => $image->getHeight($url),
                 "size" => $image->calculateSize($url),
-                "type" => $image->getType($url)
+                "type" => $image->getType($url),
+                "d_width" => $width,
+                "d_height" => $height
             ];
 
             $image->flipImage($url);

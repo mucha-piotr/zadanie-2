@@ -12,7 +12,7 @@
     </p>
     <p>
         {% if image is defined %}
-            <p><img class="result" src="{{ image.url }}" width="640" height="480"/></p>
+            <p><img class="result" src="{{ image.url }}" width="{{ image.d_width }}" height="{{ image.d_height }}"/></p>
             <p>Wymiary oryginału:{{ image.width }}x{{ image.height }}</p>
             <p>Rozmiar zdjęcia: {{ image.size }}</p>
             <p>Typ: {{ image.type }}</p>
